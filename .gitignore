@@ -1,0 +1,9 @@
+.terraform/
+aws_credentials
+*tfstate*
+*.main.tf.swp*
+../../../credentials
+credentials
+*DS_Store*
+*.iml
+*.swp
