@@ -15,7 +15,6 @@ Make sure that that your own states [backend](backend.tf) is set up with your bu
 ## Graph
 
 ![Graph](./graph.svg)
-<img src="./graph.svg">
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
