@@ -1,11 +1,7 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
     origin {
-	domain_name = "${var.bucket_name}.s3.${var.region}.amazonaws.com"
+	domain_name = "${var.bucket_name}.s3.amazonaws.com"
 	origin_id   = "${var.s3_origin_id}"
-
-	s3_origin_config {
-	    origin_access_identity = "origin-access-identity/cloudfront/ABCDEFG1234567"
-	}
     }
 
     enabled		= true
@@ -14,11 +10,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     logging_config {
 	include_cookies = false
-	bucket          = "${var.bucket_name}"
+	bucket          = "${var.bucket_name}.s3.amazonaws.com"
 	prefix          = "logs"
     }
 
-    aliases = ["${var.bucket_name}.example.com"]
 
     default_cache_behavior {
 	allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -95,6 +90,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
+    minimum_protocol_version = "TLSv1.2_2019"
   }
 
 }

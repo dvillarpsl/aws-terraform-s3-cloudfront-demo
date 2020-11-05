@@ -7,3 +7,8 @@ variable stack {
     type    = "string"
     default = "demo"
 }
+
+variable s3_origin_id {
+    type    = "string"
+    default = "myS3Origin"
+}
